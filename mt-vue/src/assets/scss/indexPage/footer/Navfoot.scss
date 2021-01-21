@@ -1,0 +1,45 @@
+.nav-foot{
+  width: 1190px;
+  margin: 0 auto;
+  border-radius: 4px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border: 1px solid #E5E5E5;
+  background: #fff;
+  p{
+    height: 50px;
+    margin-left: 20px;
+    line-height: 50px;
+  }
+  dl{
+    width: 1100px;
+    margin-left: 20px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    border-bottom: 1px solid #E5E5E5;
+    &:last-child{
+      border: none;
+    }
+    dt{
+      float: left;
+      height: 40px;
+      font-size: 14px;
+    }
+    dd{
+      margin-top: -2px;
+      display: inline-block;
+      width: 80px;
+      height: 25px;
+      line-height: 25px;
+      font-size: 12px;
+      margin-left: 15px;
+      color: #666666;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      a:hover{
+        color: #fe8c00;
+      }
+    }
+  }
+}

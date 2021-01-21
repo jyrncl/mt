@@ -1,0 +1,256 @@
+.m-row-geo {
+  width: 1190px;
+  background: #F4F4F4;
+  margin: 0 auto;
+
+  .m-col-geo {
+    height: 40px;
+    line-height: 40px;
+    .m-geo {
+      .change {
+        background: #F4F4F4;
+        border: 1px solid #E5E5E5;
+        border-radius: 2px;
+        color: #666;
+        margin: 0 4px;
+        padding: 0 2px;
+
+        &:hover {
+          color: #FE8C00;
+        }
+      }
+
+      a:hover {
+        color: #FE8C00;
+      }
+
+      .m-geo-login {
+        display: inline-block;
+        margin-left: 15px;
+
+        a {
+          margin-left: 10px;
+
+          &:first-child {
+            color: #FE8C00;
+          }
+
+          &:hover {
+            color: #FE8C00;
+          }
+        }
+      }
+    }
+  }
+
+  .m-col-nav {
+    .m-nav {
+      display: inline-block;
+      float: right;
+
+      .m-nav-ul {
+        li {
+          height: 40px;
+          line-height: 40px;
+          width: 50px;
+          float: left;
+          padding: 0px 15px;
+          text-align: center;
+
+          a:hover {
+            color: #FE8C00;
+          }
+        }
+
+        .list1 {
+          position: relative;
+          z-index: 99;
+
+          &:hover {
+            background: #fff;
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
+            >dl {
+              display: block;
+            }
+          }
+
+          dl {
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            width: 80px;
+            background: fff;
+            background: #fff;
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+            display: none;
+
+            dd {
+              height: 35px;
+              line-height: 35px;
+            }
+          }
+        }
+
+        .list3 {
+          position: relative;
+          z-index: 99;
+
+          &:hover {
+            background: #fff;
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
+            >dl {
+              display: block;
+            }
+          }
+
+          dl {
+            position: absolute;
+            top: 40px;
+            left: -50px;
+            width: 130px;
+            display: none;
+            background: fff;
+            background: #fff;
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
+            dd {
+              height: 35px;
+              line-height: 35px;
+            }
+          }
+        }
+
+        .list4 {
+          position: relative;
+
+          &:hover {
+            background: #fff;
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
+            >dl {
+              display: block;
+            }
+          }
+
+          dl {
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            width: 80px;
+            display: none;
+            background: fff;
+            background: #fff;
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
+            dd {
+              height: 35px;
+              line-height: 35px;
+            }
+          }
+        }
+
+        .list5 {
+          position: relative;
+
+          &:hover {
+            background: #fff;
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
+            >.m-row-nav {
+              display: block;
+            }
+          }
+
+          .m-row-nav {
+            position: absolute;
+            top: 40px;
+            left: -1120px;
+            z-index: 999;
+            width: 1200px;
+            display: none;
+            background: fff;
+            background: #fff;
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
+            .m-nav-dl {
+              dl {
+                text-align: left;
+                dt {
+                  text-align: center;
+                  color: black;
+                }
+                dd {
+                  width: 60px;
+                  height: 20px;
+                  line-height: 20px;
+                  text-align: center;
+                  display: inline-block;
+                  margin-left: 25px;
+
+                  &:hover {
+                    color: #FE8C00;
+                  }
+
+                  &:first-child {
+                    margin-top: 20px;
+                  }
+                }
+              }
+              .food {
+                text-align: center;
+                dt {
+                  text-align: center;
+                }
+                dd {
+                  margin-right: 20px;
+                }
+              }
+
+              .moive {
+                text-align: center;
+
+                dt {
+                  text-align: center;
+                }
+
+                dd {
+                  width: 90px;
+                  margin-right: 20px;
+                  text-align: center;
+                }
+              }
+
+              .app {
+                dt{
+                  margin-bottom: 20px;
+                }
+                dd {
+                  a {
+                    img {
+                      width: 60px;
+                    }
+                  }
+                }
+              }
+            }
+
+            // dl{
+            //   float: left;
+            //   margin-left: 20px;
+            //   dt{
+
+            //   }
+            // }
+          }
+        }
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #999;
+}

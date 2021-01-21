@@ -1,0 +1,84 @@
+.order {
+  background: #fff;
+  border-radius: 4px;
+  padding: 15px;
+  border: 1px solid #E5E5E5;
+
+  .el-tabs__active-bar {
+    background-color: #ffc300;
+  }
+
+  .is-top {
+    color: #222;
+  }
+
+  .is-active {
+    color: #222;
+  }
+
+  .el-tabs__item {
+    width: 120px;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .cardList {
+
+    .card {
+      height: 100px;
+      margin-top: 10px;
+      border-bottom: 1px solid #E5E5E5;
+      &:last-child{
+        border: none;
+      }
+
+      img {
+        float: left;
+        width: 150px;
+        height: 90px;
+        border-radius: 4px;
+      }
+
+      .cardInfo {
+        display: inline-block;
+        margin-left: 15px;
+        width: 160px;
+        height: 100px;
+
+        .title {
+          font-size: 16px;
+          margin-top: 20px;
+        }
+
+        .num {
+          margin-top: 5px;
+          font-size: 12px;
+          color: #666;
+        }
+      }
+
+      .price {
+        display: inline-block;
+        width: 100px;
+        margin-left: 160px;
+        font-size: 12px;
+        color: #666;
+      }
+
+      .state {
+        display: inline-block;
+        margin-left: 100px;
+        font-size: 12px;
+        color: #333;
+      }
+    }
+
+    .noCard {
+      height: 80px;
+      line-height: 80px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+  }
+}

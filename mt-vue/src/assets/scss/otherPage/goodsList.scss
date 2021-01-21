@@ -1,0 +1,140 @@
+.m-goodsList {
+  width: 1190px;
+  margin: 0 auto;
+  border-radius: 4px;
+
+  .m-crumb {
+    margin: 10px 0;
+
+    span {
+      font-size: 12px;
+      color: #222;
+
+      a {
+        color: #222;
+
+        &:hover {
+          color: #FE8C00;
+        }
+      }
+    }
+  }
+
+  .m-goodsList-nav {
+    width: 1150px;
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #E5E5E5;
+
+    .m-goodsList-area {
+      margin-top: 10px;
+
+      dd {
+        border: none;
+        padding-bottom: 0;
+      }
+    }
+
+    dl {
+      .m-goodsList-all {
+        padding: 1px 8px;
+        margin-right: 40px;
+        border-radius: 10px;
+        color: #222;
+        background: linear-gradient(to bottom right, #FFD000, #FFBD00);
+      }
+
+      dt {
+        display: inline-block;
+        margin-right: 50px;
+        color: #333;
+      }
+
+      dd {
+        position: relative;
+        display: inline-block;
+        width: 940px;
+        font-size: 14px;
+        color: #666;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        border-bottom: 1px solid #E5E5E5;
+
+        span {
+          display: inline-block;
+          width: 100px;
+          cursor: pointer;
+          margin-right: 20px;
+          padding-bottom: 5px;
+        }
+
+        span:hover {
+          +dl {
+            display: block;
+          }
+        }
+
+        dl {
+          display: none;
+          width: 350px;
+          padding: 19px 15px;
+          padding-bottom: 9px;
+          background: #fff;
+          box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.10);
+          border: 1px solid #E5E5E5;
+          border-radius: 4px;
+          position: absolute;
+          top: 20px;
+          left: -10px;
+          z-index: 99;
+
+          dt {
+            display: block;
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 10px;
+          }
+
+          dd {
+            display: inline-block;
+            width: 70px;
+            height: 0px;
+            margin-right: 10px;
+            margin-bottom: 5px;
+            border: none;
+            font-size: 12px;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .m-goodList-content {
+    width: 1190px;
+    margin: 10px auto;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #E5E5E5;
+    .sort{
+      padding: 15px 20px;
+      span{
+        margin-right: 40px;
+        color: #666;
+        cursor: pointer;
+      }
+      .active{
+        color: #222;
+      }
+    }
+  }
+  .m-goodList-changePage{
+    margin-top: 30px;
+    .changePage{
+      text-align: center;
+      margin-left: -60px;
+    }
+  }
+}

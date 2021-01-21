@@ -1,0 +1,58 @@
+.m-pay{
+  width: 1190px;
+  margin: 0 auto;
+  background: #fff;
+  padding-bottom: 15px;
+  &::after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+  table{
+    border-collapse:collapse;
+    tbody{
+      tr{
+        th{
+          text-align: left;
+          padding: 6px 16px;
+        }
+        .item {
+          width: 500px;
+        }
+        .onePrice, .num, .allPrice{
+          width: 190px;
+        }
+      }
+      .title{
+        background: #ccc;
+      }
+      .info{
+        background: #fff;
+        td{
+          padding-left: 15px;
+          height: 80px;
+        }
+      }
+    }
+  }
+  p{
+    height: 30px;
+    padding: 12px;
+    text-align: right;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+  }
+  button{
+    float: right;
+    margin-top: 20px;
+    margin-right: 15px;
+    padding: 5px 20px 4px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    background-color: #2db3a6;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+}
