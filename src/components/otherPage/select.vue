@@ -3,7 +3,7 @@
     <div class="choose" @click.self="click" v-document-click="showSelect">
       <span class="title">{{ city ? city : title }}</span>
       <i class="el-icon-caret-bottom"></i>
-      <dl class="cities" v-show="isshow">
+      <dl class="cities" v-show="showList">
         <dt>{{ title }}</dt>
         <dd class="city" v-for="(v, i) in renderList" :key="i + v">
           <p v-if="v[i].province">
@@ -21,9 +21,11 @@
               :key="item + index"
               :class="{ active: item.isactive, notactive: !item.isactive }"
               @click="isActive(item, index, i)"
-              ><router-link @click.native="changeCity(item.city)" :to="{ name: 'main' }">{{
-                item.city
-              }}</router-link></span
+              ><router-link
+                @click.native="changeCity(item.city)"
+                :to="{ name: 'main' }"
+                >{{ item.city }}</router-link
+              ></span
             >
           </p>
         </dd>
@@ -34,7 +36,7 @@
 
 <script>
 export default {
-  props: ["title", "areaList"],
+  props: ["title", "areaList", "showList"],
   data() {
     return {
       isshow: false,
@@ -46,7 +48,6 @@ export default {
   methods: {
     click(e) {
       e.stopPropagation();
-      this.isshow = true;
     },
     isActive(item, index, i) {
       let num = index + i * 12;
@@ -65,13 +66,15 @@ export default {
       }
       this.isshow = false;
       this.$emit("cityIndex", num);
+      this.$emit("notShow",this.isshow);
     },
     showSelect() {
       this.isshow = false;
+      this.$emit("notShow",this.isshow);
     },
     changeCity(m) {
-      this.$store.commit('changeCity',m);
-    }
+      this.$store.commit("changeCity", m);
+    },
   },
   computed: {
     renderList() {

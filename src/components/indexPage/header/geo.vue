@@ -23,7 +23,6 @@
 import {mapState} from 'vuex'
 export default {
   created() {
-    console.log(this.$store.state.isLogin);
   },
   computed: {
     ...mapState({

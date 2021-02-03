@@ -1,5 +1,5 @@
 <template>
-  <div class="t-main">
+  <div class="t-main" v-if="classList">
     <div :class="classList[index].headerClass">
       <dt>{{ cardinfo[index].title }}</dt>
       <dd
@@ -24,7 +24,7 @@
           v-for="(m, n) in cardinfo[index].children[num].children"
           :key="m + n"
         >
-          <img :src="m.imgurl" alt="" :class="classList[index].cardImgClass" />
+          <img :src="m.imgurl" alt="" :class="classList[index].cardImgClass"/>
           <div class="info" v-if="cardinfo[index].title == '推荐民宿'">
             <p class="msg">{{ m.msg }}</p>
             <p class="address">{{m.address}}</p>
@@ -69,7 +69,7 @@ export default {
       num: 0,
       kind: "tj",
       cardinfo: [],
-      classList: []
+      classList: ''
     };
   },
   methods: {

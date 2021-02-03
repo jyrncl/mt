@@ -53,7 +53,7 @@
           <span>{{ confirmWarning }}</span>
         </span>
       </div>
-      <router-link tag="button" :to="{ name: 'login' }" class="submit"
+      <router-link tag="button" :to="{name: 'register'}" @click.native="submit" class="submit"
         >同意以下协议并注册</router-link
       >
       <p class="agreement">
@@ -126,23 +126,26 @@ export default {
       let len = this.password.length;
       if (len == 0) {
         this.strongClass = "nothing";
-        this.$store.commit('passwordStreng','');
+        this.$store.commit("passwordStreng", "");
       } else if (len > 0 && len <= 8) {
         this.strongClass = "weak";
-        this.$store.commit('passwordStreng','弱');
+        this.$store.commit("passwordStreng", "弱");
       } else if (len >= 8 && len <= 16 && this.password.match(/[A-z]/g)) {
         this.strongClass = "middle";
-        this.$store.commit('passwordStreng','中');
+        this.$store.commit("passwordStreng", "中");
       } else if (len > 16 && this.password.match(/[A-z]/g)) {
         this.strongClass = "strong";
-        this.$store.commit('passwordStreng','强');
+        this.$store.commit("passwordStreng", "强");
       }
     },
     submit() {
       this.accountBlur();
       this.passwordBlur();
       this.confirmBlur();
-      this.$store.commit('register',{account:this.account,password:this.password});
+      this.$store.commit("register", {
+        account: this.account,
+        password: this.password,
+      });
     },
   },
   computed: {
@@ -154,24 +157,6 @@ export default {
       let reg = /[0-9A-z]{8,}/g;
       return reg;
     },
-  },
-  beforeRouteLeave(to, from, next) {
-    this.submit();
-    if (to.path == "/login") {
-      if (
-        !(
-          this.isAccountWarning &&
-          this.isPasswordWarning &&
-          this.isConfirmWarning
-        )
-      ) {
-        next();
-      } else {
-        next(false);
-      }
-    } else {
-      next();
-    }
   },
 };
 </script>

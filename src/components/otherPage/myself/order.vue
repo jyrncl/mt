@@ -3,7 +3,7 @@
     <el-tabs v-model="activeName[Index]">
       <el-tab-pane :label="item.label" :name="item.name" v-for="(item,index) in list" :key="item+index">
         <div class="cardList" v-if="list[index].children.length">
-          <div class="card" v-for="(v,i) in list[index].children[0]" :key="i+v">
+          <div class="card" v-for="(v,i) in list[index].children" :key="i+v">
             <img
               :src="v.imgurl"
               alt=""

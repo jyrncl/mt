@@ -29,6 +29,9 @@ var api = {
   },
   postUser (params) {
     return axios.post('/userLogin', params)
+  },
+  getMyselfList () {
+    return axios.get('/myselfList')
   }
 }
 
