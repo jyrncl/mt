@@ -84,12 +84,10 @@ export default {
   methods: {
     verify() {
       let Index = null;
-      console.log(this.newAccount);
       this.newAccount.forEach(function (ele, index) {
         if (this.account == ele) {
           Index = index;
         }
-        console.log(this);
       },this);
       return (
         this.account === this.newAccount[Index] &&

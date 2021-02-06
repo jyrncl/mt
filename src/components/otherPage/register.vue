@@ -53,7 +53,11 @@
           <span>{{ confirmWarning }}</span>
         </span>
       </div>
-      <router-link tag="button" :to="{name: 'register'}" @click.native="submit" class="submit"
+      <router-link
+        tag="button"
+        :to="{ name: 'register' }"
+        @click.native="submit"
+        class="submit"
         >同意以下协议并注册</router-link
       >
       <p class="agreement">
@@ -68,7 +72,7 @@
 </template>
 
 <script>
-import api from "@/axios/api.js";
+import { mapState } from "vuex";
 export default {
   created() {},
   data() {
@@ -91,16 +95,26 @@ export default {
       if (!this.account) {
         this.isAccountWarning = true;
         this.accountWarning = "请输入用户名";
-      } else if (!this.account.match(this.usernameReg) || len > 8) {
-        this.isAccountWarning = true;
-        this.accountWarning = "请输入5~8位字符的用户名";
-      } else if (this.account.length <= 8) {
-        this.isAccountWarning = false;
+      } else {
+        this.oldAccount.forEach((ele) => {
+          if (ele == this.account) {
+            this.isAccountWarning = true;
+            this.accountWarning = "该用户名已注册";
+          } else {
+            if (!this.usernameReg.test(this.account) || len > 8 || len < 5) {
+              this.isAccountWarning = true;
+              this.accountWarning = "请输入5~8位字符的用户名";
+            } else if (len <= 8 && len >= 5) {
+              this.isAccountWarning = false;
+            }
+          }
+        });
       }
     },
     passwordBlur() {
       let len = this.password.length;
       let reg = this.passwordReg;
+      let isOldAccount = false;
       if (!this.password) {
         this.isPasswordWarning = true;
         this.passwordWarning = "请填写密码";
@@ -130,10 +144,14 @@ export default {
       } else if (len > 0 && len <= 8) {
         this.strongClass = "weak";
         this.$store.commit("passwordStreng", "弱");
-      } else if (len >= 8 && len <= 16 && this.password.match(/[A-z]/g)) {
+      } else if (
+        len >= 8 &&
+        len <= 16 &&
+        this.passwordReg.test(this.password)
+      ) {
         this.strongClass = "middle";
         this.$store.commit("passwordStreng", "中");
-      } else if (len > 16 && this.password.match(/[A-z]/g)) {
+      } else if (len > 16 && this.passwordReg.test(this.password)) {
         this.strongClass = "strong";
         this.$store.commit("passwordStreng", "强");
       }
@@ -142,19 +160,27 @@ export default {
       this.accountBlur();
       this.passwordBlur();
       this.confirmBlur();
-      this.$store.commit("register", {
-        account: this.account,
-        password: this.password,
-      });
+      if (
+        !(this.isAccountWarning && this.isPasswordWarning && isConfirmWarning)
+      ) {
+        this.$store.commit("register", {
+          account: this.account,
+          password: this.password,
+        });
+        this.$router.push('/login');
+      }
     },
   },
   computed: {
+    ...mapState({
+      oldAccount: (state) => state.newAccount,
+    }),
     usernameReg() {
-      let reg = /[0-9A-z]{5,8}/g;
+      let reg = /[0-9A-z]/g;
       return reg;
     },
     passwordReg() {
-      let reg = /[0-9A-z]{8,}/g;
+      let reg = /[0-9A-z]/g;
       return reg;
     },
   },

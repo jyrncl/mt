@@ -36,14 +36,14 @@ export default new Vuex.Store({
     changeCity (state, name) {
       state.cityName = name
     },
-    loginAccount (state, {account, isLogin}) {
+    loginAccount (state, { account, isLogin }) {
       state.account = account
       state.isLogin = isLogin
     },
     exit (state, isLogin) {
       state.isLogin = isLogin
     },
-    register (state, {account, password}) {
+    register (state, { account, password }) {
       state.newAccount.push(account)
       state.newPassword.push(password)
     },
@@ -59,7 +59,7 @@ export default new Vuex.Store({
     passwordStreng (state, value) {
       state.tag = value
     },
-    goodsInfo (state, {_imgurl, _title, _info, _price, _sale, _index}) {
+    goodsInfo (state, { _imgurl, _title, _info, _price, _sale, _index }) {
       state.infoValue.imgurl = _imgurl
       state.infoValue.title = _title
       state.infoValue.info = _info
@@ -67,7 +67,7 @@ export default new Vuex.Store({
       state.infoValue.sale = _sale
       state.infoValue.index = _index
     },
-    payInfo (state, {_imgurl, _item, _onePrice, _num, _allPrice}) {
+    payInfo (state, { _imgurl, _item, _onePrice, _num, _allPrice }) {
       state.payValue.imgurl = _imgurl
       state.payValue.item = _item
       state.payValue.onePrice = _onePrice
@@ -83,6 +83,13 @@ export default new Vuex.Store({
         state: value.state
       }
       state.orderValue.push(obj)
+    },
+    changeAccount (state, { val, index }) {
+      state.newAccount[index] = val
+      state.account = val
+    },
+    changePassword (state, { val, index }) {
+      state.newPassword[index] = val
     }
   },
   actions: {

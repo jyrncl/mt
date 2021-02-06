@@ -32,6 +32,9 @@ var api = {
   },
   getMyselfList () {
     return axios.get('/myselfList')
+  },
+  getUserInfo () {
+    return axios.get('/userInfo')
   }
 }
 

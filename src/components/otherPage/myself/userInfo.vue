@@ -31,32 +31,17 @@
 </template>
 
 <script>
+import api from '@/axios/api.js'
 import { mapState } from "vuex";
 export default {
+  created() {
+    api.getUserInfo().then(res => {
+      this.settingList = res.data.data.settingList;
+    });
+  },
   data() {
     return {
-      settingList: [
-        {
-          title: "全部订单",
-          class: "el-icon-s-order",
-        },
-        {
-          title: "待付款",
-          class: "el-icon-s-finance",
-        },
-        {
-          title: "待使用",
-          class: "el-icon-s-ticket",
-        },
-        {
-          title: "待评论",
-          class: "el-icon-s-comment",
-        },
-        {
-          title: "退款/售后",
-          class: "el-icon-question",
-        },
-      ],
+      settingList: [],
     };
   },
   methods: {
