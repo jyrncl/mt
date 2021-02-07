@@ -124,7 +124,7 @@ export default {
     ...mapState({
       account: (state) => state.account,
       tag: (state) => state.tag,
-      userInfo: (state) => state.userInfo
+      userInfo: (state) => state.userInfo,
     }),
   },
   methods: {
@@ -160,18 +160,16 @@ export default {
     },
     changePass() {
       if (this.curPass) {
-        this.userInfo.forEach((ele) => {
+        this.userInfo.forEach((ele, index) => {
           if (ele.account == this.account) {
-            this.userInfo.forEach((ele, index) => {
-              if (ele.password == this.curPass) {
-                this.isShowCurPsaaTag = false;
-                this.curValid = "valid";
-              } else {
-                this.isShowCurPsaaTag = true;
-                this.curValid = "invalid";
-                this.curPsaaTag = "当前密码错误，请重新输入";
-              }
-            });
+            if (this.userInfo[index].password == this.curPass) {
+              this.isShowCurPsaaTag = false;
+              this.curValid = "valid";
+            } else {
+              this.isShowCurPsaaTag = true;
+              this.curValid = "invalid";
+              this.curPsaaTag = "当前密码错误，请重新输入";
+            }
           }
         });
       } else {
@@ -209,13 +207,15 @@ export default {
       }
       if (!this.isShowCurPsaaTag && this.newPass == this.comfirmPass) {
         this.userInfo.forEach((ele, index) => {
-          if (ele.password == this.curPass) {
-            this.$store.commit("changePassword", {
-              val: this.newPass,
-              index: index,
-            });
-            this.showChangePass = false;
-            alert('密码已更改，请重新登录时使用新密码');
+          if (ele.account == this.account) {
+            if (this.userInfo[index].password == this.curPass) {
+              this.$store.commit("changePassword", {
+                val: this.newPass,
+                index: index,
+              });
+              this.showChangePass = false;
+              alert("密码已更改，请重新登录时使用新密码");
+            }
           }
         });
       }
@@ -231,7 +231,7 @@ export default {
               });
               this.showChangeAccount = false;
               this.account = this.newName;
-              alert('用户名已更改，请重新登录时使用新用户名');
+              alert("用户名已更改，请重新登录时使用新用户名");
             }
           });
         }
