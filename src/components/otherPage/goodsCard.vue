@@ -71,7 +71,6 @@ export default {
   },
   methods: {
     goodsInfo(imgurl,title,info,price,sale,i) {
-      console.log(info,price,sale,i);
       this.$store.commit('goodsInfo',{_imgurl:imgurl,_title:title,_info:info,_price:price,_sale:sale,_index:i});
     }
   }

@@ -28,8 +28,7 @@ export default new Vuex.Store({
     account: '',
     tag: '弱',
     isLogin: false,
-    newAccount: [],
-    newPassword: []
+    userInfo: []
   },
   getters: {},
   mutations: {
@@ -44,8 +43,12 @@ export default new Vuex.Store({
       state.isLogin = isLogin
     },
     register (state, { account, password }) {
-      state.newAccount.push(account)
-      state.newPassword.push(password)
+      let accountInfo = {
+        account: account,
+        password: password,
+        orderList: []
+      }
+      state.userInfo.push(accountInfo)
     },
     searchValue (state, value) {
       state.searchTag = value
@@ -82,14 +85,18 @@ export default new Vuex.Store({
         price: value.price,
         state: value.state
       }
-      state.orderValue.push(obj)
+      state.userInfo.forEach(ele => {
+        if (ele.account === state.account) {
+          ele.orderList.push(obj)
+        }
+      })
     },
     changeAccount (state, { val, index }) {
-      state.newAccount[index] = val
+      state.userInfo[index].account = val
       state.account = val
     },
     changePassword (state, { val, index }) {
-      state.newPassword[index] = val
+      state.userInfo[index].password = val
     }
   },
   actions: {

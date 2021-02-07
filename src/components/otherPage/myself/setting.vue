@@ -96,9 +96,6 @@
 <script>
 import { mapState } from "vuex";
 export default {
-  created() {
-    console.log(this.account);
-  },
   data() {
     return {
       newName: "",
@@ -127,8 +124,7 @@ export default {
     ...mapState({
       account: (state) => state.account,
       tag: (state) => state.tag,
-      oldAccount: (state) => state.newAccount,
-      oldPassword: (state) => state.newPassword,
+      userInfo: (state) => state.userInfo
     }),
   },
   methods: {
@@ -164,10 +160,10 @@ export default {
     },
     changePass() {
       if (this.curPass) {
-        this.oldAccount.forEach((ele) => {
-          if (ele == this.account) {
-            this.oldPassword.forEach((ele, index) => {
-              if (ele == this.curPass) {
+        this.userInfo.forEach((ele) => {
+          if (ele.account == this.account) {
+            this.userInfo.forEach((ele, index) => {
+              if (ele.password == this.curPass) {
                 this.isShowCurPsaaTag = false;
                 this.curValid = "valid";
               } else {
@@ -212,13 +208,14 @@ export default {
         this.comfirmPsaaTag = "请再次输入新密码";
       }
       if (!this.isShowCurPsaaTag && this.newPass == this.comfirmPass) {
-        this.oldPassword.forEach((ele, index) => {
-          if (ele == this.curPass) {
+        this.userInfo.forEach((ele, index) => {
+          if (ele.password == this.curPass) {
             this.$store.commit("changePassword", {
               val: this.newPass,
               index: index,
             });
             this.showChangePass = false;
+            alert('密码已更改，请重新登录时使用新密码');
           }
         });
       }
@@ -226,14 +223,15 @@ export default {
     changeAccount() {
       if (this.newName) {
         if (!this.tagColor) {
-          this.oldAccount.forEach((ele, index) => {
-            if (ele == this.account) {
+          this.userInfo.forEach((ele, index) => {
+            if (ele.account == this.account) {
               this.$store.commit("changeAccount", {
                 val: this.newName,
                 index: index,
               });
               this.showChangeAccount = false;
               this.account = this.newName;
+              alert('用户名已更改，请重新登录时使用新用户名');
             }
           });
         }

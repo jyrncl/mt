@@ -33,9 +33,8 @@ export default {
       this.orderList = res.data.data.orderList;
       this.collectList = res.data.data.collectList;
       this.ticketList = res.data.data.ticketList;
-      this.orderList[0].children = this.orderValue;
+      this.orderList[0].children = this.userOrderInfo;
       this.list = this.orderList;
-      console.log(this.list);
     });
   },
   data() {
@@ -71,11 +70,21 @@ export default {
   },
   computed: {
     ...mapState({
+      account: state => state.account,
       selfIndex: (state) => state.selfIndex,
       myselfIndex: (state) => state.myselfIndex,
       isLogin: (state) => state.isLogin,
-      orderValue: (state) => state.orderValue,
+      userInfo: (state) => state.userInfo,
     }),
+    userOrderInfo() {
+      let arr = [];
+      this.userInfo.forEach(ele => {
+        if(ele.account == this.account) {
+          arr = ele.orderList;
+        }
+      });
+      return arr;
+    }
   },
 };
 </script>

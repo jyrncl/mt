@@ -82,7 +82,6 @@ export default {
       this.goodsList = res.data.data.goodsList;
       this.filterValue();
     });
-    console.log(this.$store.state.searchTag);
   },
   data() {
     return {
@@ -125,7 +124,6 @@ export default {
       this.isActiveScore = false;
     },
     defaultSort() {
-      console.log(this.$store.state.searchTag);
       this.isActive();
       this.priceSortIndex = 0;
       this.isActiveDefault = true;
@@ -160,7 +158,6 @@ export default {
       this.sort("score", "bigTosmall");
     },
     sort(what, direction) {
-      console.log(this.filterData);
       if (direction == "bigTosmall") {
         this.filterData.sort((a, b) => {
           return b[what] - a[what];

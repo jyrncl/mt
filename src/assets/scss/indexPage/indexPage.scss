@@ -5,10 +5,12 @@
 }
 .m-container {
   width: 100%;
+  min-width: 1400px;
   background: #F8F8F8;
 
   .m-header {
     width: 100%;
+    min-width: 1400px;
     padding: 0;
     color: #999;
     background: #F4F4F4;
@@ -19,6 +21,7 @@
     margin: 0 auto;
     overflow: visible;
     width: 100%;
+    min-width: 1400px;
     background: #F8F8F8;
   }
 
@@ -26,6 +29,7 @@
     margin: 0 auto;
     padding: 0;
     width: 100%;
+    min-width: 1400px;
     background: #F8F8F8;
   }
 }

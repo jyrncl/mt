@@ -126,7 +126,6 @@ export default {
       this.index = index;
     },
     changeCity(m) {
-      console.log(1);
       this.$store.commit("changeCity", m);
     },
     notShow(val) {

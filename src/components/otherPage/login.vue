@@ -14,7 +14,7 @@
           <span>{{ tag }}</span>
         </p>
         <p>
-          <span @click="verifys">账号登录</span>
+          <span>账号登录</span>
         </p>
         <div class="account">
           <span class="account-left">
@@ -77,25 +77,18 @@ export default {
   },
   computed: {
     ...mapState({
-      newAccount: (state) => state.newAccount,
-      newPassword: (state) => state.newPassword,
+      userInfo: state => state.userInfo
     }),
   },
   methods: {
     verify() {
-      let Index = null;
-      this.newAccount.forEach(function (ele, index) {
-        if (this.account == ele) {
-          Index = index;
+      let isVerify = false;
+      this.userInfo.forEach(ele => {
+        if(ele.account == this.account && ele.password == this.password) {
+          isVerify = true;
         }
-      },this);
-      return (
-        this.account === this.newAccount[Index] &&
-        this.password === this.newPassword[Index]
-      );
-    },
-    verifys() {
-      console.log(this.verify());
+      });
+      return isVerify;
     }
   },
   beforeRouteLeave(to, from, next) {

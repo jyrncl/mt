@@ -36,7 +36,6 @@ export default {
               state: '已完成'
             }
       this.$store.commit('orderInfo',obj);
-      console.log(obj);
       alert('付款成功，前往订单查看');
     }
   },

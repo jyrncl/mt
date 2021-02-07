@@ -132,7 +132,6 @@ export default {
       if(i == 0){
         this.$router.push('/myself');
       }else{
-        console.log(i);
         this.$store.commit('myselfPage',i);
       }
     }

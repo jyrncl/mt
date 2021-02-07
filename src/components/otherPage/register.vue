@@ -74,7 +74,6 @@
 <script>
 import { mapState } from "vuex";
 export default {
-  created() {},
   data() {
     return {
       strongClass: "nothing",
@@ -96,8 +95,8 @@ export default {
         this.isAccountWarning = true;
         this.accountWarning = "请输入用户名";
       } else {
-        this.oldAccount.forEach((ele) => {
-          if (ele == this.account) {
+        this.userInfo.forEach((ele) => {
+          if (ele.account == this.account) {
             this.isAccountWarning = true;
             this.accountWarning = "该用户名已注册";
           } else {
@@ -173,7 +172,7 @@ export default {
   },
   computed: {
     ...mapState({
-      oldAccount: (state) => state.newAccount,
+      userInfo: (state) => state.userInfo,
     }),
     usernameReg() {
       let reg = /[0-9A-z]/g;

@@ -26,7 +26,6 @@ export default {
     return {};
   },
   beforeRouteLeave(to, from, next) {
-    console.log(to);
     if (this.isAllow(to.name)) {
       if (this.$store.state.isLogin) {
         next();
